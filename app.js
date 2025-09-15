@@ -1,9 +1,8 @@
-// Intro: แสดง Bubble Reveal ~3s แล้วถอดจาก DOM (มี fallback/escape)
 document.addEventListener('DOMContentLoaded', () => {
   const intro = document.getElementById('intro');
   if (!intro) return;
 
-  const DURATION = 3000;  // ระยะเวลาที่อยากให้แสดง (ms)
+  const DURATION = 3000;
 
   let finished = false;
   let t1 = null, t2 = null;
@@ -24,16 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const finish = () => {
     if (finished) return;
     finished = true;
-    // ล้าง timer กันยิงซ้ำ
     if (t1) clearTimeout(t1);
     if (t2) clearTimeout(t2);
 
-    // ซ่อนแบบมีทรานซิชัน + ปิดการคลิกทันที
     intro.setAttribute('aria-hidden', 'true');
     intro.style.pointerEvents = 'none';
 
-    // บังคับ reflow เพื่อให้ transition ทำงานชัวร์
-    // (ถ้า CSS มี .hidden { opacity:0; transition:opacity .7s; } )
+ 
     void intro.offsetWidth;
 
     intro.classList.add('hidden');
@@ -43,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
       hardRemove();
     };
 
-    // ถ้าไฟล์ CSS มี transition ให้รอ transitionend, ถ้าไม่มีก็ fallback 700ms
     let transitioned = false;
     const transitionTimeout = setTimeout(() => {
       if (!transitioned) hardRemove();
@@ -56,15 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // ระหว่างโชว์ intro ปิดสกรอลล์ไว้
   document.documentElement.style.overflow = 'hidden';
 
   s
-  // ตั้งเวลาปกติ + กันพลาดสุดท้าย
   t1 = setTimeout(finish, DURATION);
   t2 = setTimeout(finish, MAX_WAIT);
-
-  // ถ้าแท็บกลับมาโฟกัสแล้วเลยเวลา DURATION ไปมาก ให้ปิดทันที
+  
   let start = performance.now();
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') {
@@ -73,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 });
-/* Intro script */
+
 document.addEventListener('DOMContentLoaded', () => {
   const intro = document.getElementById('intro');
   if (!intro) return;
@@ -85,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       if (intro.parentNode) intro.parentNode.removeChild(intro);
       document.documentElement.style.overflow = '';
-    }, 700); // ให้ตรงกับ transition CSS
+    }, 700);
   }, 3000);
 });
+
