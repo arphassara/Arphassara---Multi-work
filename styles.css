@@ -1,12 +1,11 @@
-/* ===== Color Palette ===== */
 :root{
-  --ink:#5D688A;    /* หลัก (หัวข้อ/หัวเว็บ) */
-  --rose:#F7A5A5;   /* ไฮไลต์/ปุ่ม */
-  --peach:#FFDBB6;  /* พื้นหลังเสริม */
-  --paper:#FFF2EF;  /* พื้นหลังหลัก */
-  --text:#2b2b2b;   /* ตัวอักษรเข้มอ่านง่าย */
-  --muted:#616a72;  /* คำอธิบาย */
-  --border:#e8d9d5; /* เส้นคั่นอ่อน */
+  --ink:#5D688A;    
+  --rose:#F7A5A5;  
+  --peach:#FFDBB6; 
+  --paper:#FFF2EF;
+  --text:#2b2b2b;  
+  --muted:#616a72; 
+  --border:#e8d9d5;
 }
 
 *{box-sizing:border-box}
@@ -16,7 +15,7 @@ body{
   color:var(--text); background:var(--paper); line-height:1.7;
 }
 
-/* Bubbles animation */
+
 .bubbles {
   position: absolute;
   inset: 0;
@@ -43,7 +42,7 @@ body{
 }
 
 
-/* Logo fade-in */
+
 .logo-fade {
   display: block;
   opacity: 0;
@@ -63,7 +62,7 @@ body{
 
 
 
-/* ===== Navbar ===== */
+
 .site-header{
   position:sticky; top:0; z-index:10;
   background: rgba(255,242,239,.75);
@@ -76,17 +75,16 @@ body{
 .nav-links a{color:var(--ink); text-decoration:none; font-weight:600}
 .nav-links a:hover{color:var(--rose)}
 
-/* ===== Hero ===== */
+
 .hero{
   position:relative;
   min-height: clamp(68vh, 78vh, 88vh);
   display:grid; place-items:center;
   overflow:hidden;
-  /* ไล่สีพื้นหลังบางๆ กันพื้นที่ว่างโล่งเกินไป */
   background: linear-gradient(180deg, color-mix(in srgb, var(--paper) 65%, #fff), var(--paper));
 }
 
-/* พื้นหลังลอย */
+
 .hero-bg .blob{
   position:absolute; filter:blur(28px); opacity:.55; border-radius:50%;
 }
@@ -95,7 +93,7 @@ body{
 .b3{ width:440px; height:440px; left:40%; bottom:-140px; background:#FFDBB633; animation:float 15s ease-in-out infinite }
 @keyframes float{ 0%,100%{ transform:translateY(0)} 50%{ transform:translateY(-16px)} }
 
-/* วงแหวนโคจร */
+
 .orbits .ring{
   position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
   border:1px dashed #5D688A44; border-radius:50%;
@@ -106,7 +104,7 @@ body{
 .r3{ width:820px; height:820px; animation-duration:36s }
 @keyframes orbitSpin{ to{ transform:translate(-50%,-50%) rotate(360deg) } }
 
-/* อนุภาค */
+
 .particles span{
   position:absolute; width:6px; height:6px; border-radius:50%;
   background:#ffffffcc; box-shadow:0 0 10px #ffffffcc;
@@ -119,12 +117,12 @@ body{
 .particles span:nth-child(5){ left:48%; top:68%; animation-delay:1.8s }
 @keyframes floatUp{ 0%,100%{ transform:translateY(0)} 50%{ transform:translateY(-14px)} }
 
-/* เนื้อหา */
+
 .hero-inner{
   text-align:center;
   padding:0 16px;
   z-index:1;
-  transform: translateY(-6%); /* ยกขึ้นเล็กน้อยให้บาลานซ์ */
+  transform: translateY(-6%);
 }
 .title{
   margin:0 0 8px;
@@ -157,15 +155,15 @@ body{
 }
 .btn.ghost:hover{ background: color-mix(in srgb, var(--ink) 10%, #fff) }
 
-/* รองรับพารัลแลกซ์จาก JS */
+
 .parallax{ will-change: transform; transition: transform .08s linear }
 
-/* Motion reduce */
+
 @media (prefers-reduced-motion: reduce){
   .blob, .ring, .particles span, .title.shine{ animation: none !important }
 }
 
-/* มือถือ: ขยับ layout ให้ balance มากขึ้น */
+
 @media (max-width: 560px){
   .hero{ min-height: 72vh }
   .hero-inner{ transform: translateY(-4%) }
@@ -173,12 +171,12 @@ body{
 }
 
 
-/* ===== Sections ===== */
+
 .section{max-width:1100px; margin:0 auto; padding:56px 16px}
 .section h2{margin:0 0 10px; color:var(--ink)}
 .intro-copy{background:linear-gradient(180deg, #FFDBB6 0%, #FFF2EF 100%); border-top:1px solid var(--border); border-bottom:1px solid var(--border)}
 
-/* Cards (Types) */
+
 .cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px; margin-top:12px}
 .card{background:#fff; border:1px solid var(--border); border-radius:14px; overflow:hidden; box-shadow:0 10px 24px rgba(93,104,138,.08)}
 .card img{width:100%; height:160px; object-fit:cover; display:block; background:#eee}
@@ -186,16 +184,16 @@ body{
 .card h3{margin:6px 0; color:var(--ink)}
 .card p{margin:0; color:var(--muted)}
 
-/* Notes / Articles */
+
 .note{background:#fff; border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin:10px 0; box-shadow:0 6px 18px rgba(93,104,138,.08)}
 .note h3{margin:0 0 6px; color:var(--ink)}
 .note p, .note ul{margin:0; color:var(--text)}
 
-/* Footer */
+
 .site-footer{padding:24px 16px; border-top:1px solid var(--border); text-align:center; color:var(--muted)}
 
 
-/* ===== HERO: เอฟเฟกต์เพิ่ม ===== */
+
 .fx-hero { position: relative; overflow: hidden; }
 .title.shine{
   background: linear-gradient(90deg, var(--ink), var(--rose), var(--ink));
@@ -205,7 +203,7 @@ body{
 }
 @keyframes shineMove { 0%{background-position:0% 50%} 100%{background-position:200% 50%} }
 
-/* วงแหวนโคจร */
+
 .orbits .ring{
   position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
   border:1px dashed #5D688A44; border-radius:50%;
@@ -216,7 +214,7 @@ body{
 .r3{ width: 820px; height: 820px; animation-duration: 34s; }
 @keyframes orbitSpin { to{ transform:translate(-50%,-50%) rotate(360deg) } }
 
-/* อนุภาค */
+
 .particles span{
   position:absolute; width:6px; height:6px; border-radius:50%;
   background: #ffffffcc; box-shadow:0 0 10px #ffffffcc;
@@ -229,10 +227,10 @@ body{
 .particles span:nth-child(5){ left:48%; top:68%; animation-delay:1.8s }
 @keyframes floatUp { 0%,100%{ transform:translateY(0)} 50%{ transform:translateY(-14px)} }
 
-/* Parallax wrapper */
+
 .parallax { will-change: transform; transition: transform .08s linear; }
 
-/* ===== Types: vertical scroll-snap panels ===== */
+
 .snap-container{
   scroll-snap-type: y mandatory;
   display:flex; flex-direction:column; gap:24px;
@@ -254,7 +252,7 @@ body{
 .panel-content h3{ margin:.2rem 0 .4rem; color: var(--ink) }
 .panel-content p{ margin:0; color: var(--muted) }
 
-/* Desktop: วางรูป-ข้อความ แบบ 2 คอลัมน์ */
+
 @media (min-width: 900px){
   .snap-panel{
     grid-template-columns: 1.1fr .9fr;
@@ -267,11 +265,11 @@ body{
   .panel-content{ padding-inline: 18px; }
 }
 
-/* เผยทีละหัวข้อ (reveal) */
+
 .reveal{ opacity:0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.show{ opacity:1; transform: translateY(0); }
 
-/* ===== Intro: Bubble Reveal Effects ===== */
+
 #intro {
   position: fixed;
   inset: 0;
@@ -306,7 +304,7 @@ body{
   100% { transform: scale(1) rotate(0); opacity: 1; }
 }
 
-/* Bubbles animation (already present, but ensure z-index) */
+
 .bubbles {
   position: absolute;
   inset: 0;
@@ -332,7 +330,7 @@ body{
   100% { transform: translateY(-400px) scale(0.8); opacity: 0;}
 }
 
-/* Sparkles */
+
 .sparkles {
   position: absolute;
   inset: 0;
@@ -357,7 +355,7 @@ body{
   50% { opacity: 1; transform: scale(1.3);}
 }
 
-/* Logo animation */
+
 .logo-wrap {
   position: relative;
   z-index: 4;
@@ -384,7 +382,7 @@ body{
   to { opacity: 1; transform: none; }
 }
 
-/* Subtext fade-in */
+
 .intro-logo .sub {
   display: block;
   font-size: 1.1rem;
@@ -395,7 +393,7 @@ body{
   animation: logoFadeIn 1.2s cubic-bezier(.5,.2,.5,1) 1.5s forwards;
 }
 
-/* Reveal circle animation */
+
 .reveal-circle {
   position: absolute;
   left: 50%; top: 50%;
@@ -413,7 +411,7 @@ body{
   100% { width: 120vw; height: 120vw; opacity: 0;}
 }
 
-/* ===== Bubbles: เพิ่มจำนวนบับเบิ้ล ===== */
+
 .bubbles {
   position: absolute;
   inset: 0;
@@ -438,7 +436,7 @@ body{
   80%  { transform: translateY(-340px) scale(1.1);}
   100% { transform: translateY(-400px) scale(0.8); opacity: 0;}
 }
-/* ===== Browser Window Mockup ===== */
+
 .mockup.browser{
   max-width: 1000px;
   margin: 0 auto 48px;
@@ -486,14 +484,14 @@ body{
 
 .browser-screen{
   background: #000;
-  aspect-ratio: 16/9;  /* จอมาตรฐานวิดีโอ */
+  aspect-ratio: 16/9; 
 }
 
 .browser-screen img,
 .browser-screen iframe{
   width: 100%;
   height: 100%;
-  object-fit: contain; /* แสดงสัดส่วนจริง */
+  object-fit: contain; 
   border: 0;
   display: block;
 }
@@ -503,7 +501,7 @@ body{
 }
 
 
-/* ===== Layout แถวงาน ===== */
+
 .work-row{
   display: flex;
   flex-wrap: wrap;
@@ -513,8 +511,8 @@ body{
 }
 
 .work-row .mockup.phone.small{
-  max-width: 220px;   /* ขนาดเล็ก */
-  flex-shrink: 0;     /* ไม่ยืด */
+  max-width: 220px;  
+  flex-shrink: 0;    
 }
 
 .work-text{
@@ -534,11 +532,12 @@ body{
   line-height: 1.6;
 }
 
-/* Responsive: ถ้าจอแคบ (<700px) ให้โทรศัพท์ขึ้นบน คำบรรยายลงล่าง */
+
+
 
 .section{max-width:1100px; margin:0 auto; padding:32px 16px}
 
-/* Layout ซ้าย-ขวา */
+
 .phone-row{
   display:flex;
   align-items:center;
@@ -550,7 +549,7 @@ body{
   .phone-row{flex-direction:column; align-items:flex-start}
 }
 
-/* Phone Mockup */
+
 .mockup.phone{max-width:200px; flex-shrink:0}
 
 
@@ -575,7 +574,7 @@ body{
   background:#e5e7eb22;
 }
 
-/* คำบรรยาย */
+
 .desc h3{margin:0 0 8px; color:var(--ink); font-size:1.3rem}
 .desc p{margin:0; color:var(--muted); line-height:1.6}
 .btn{
@@ -591,3 +590,4 @@ body{
 }
 .btn:hover{ background:var(--soft2, #F7A5A5); transform:translateY(-1px); }
 .btn:active{ transform:translateY(0); }
+
